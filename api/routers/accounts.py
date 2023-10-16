@@ -6,31 +6,18 @@ from fastapi import (
     APIRouter,
     Request,
 )
-from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
-from pydantic import BaseModel
 from models.accounts import (
     AccountIn,
-    AccountOut,
     DuplicateAccountError,
+    AccountForm,
+    AccountToken,
+    HttpError
 )
 from queries.accounts import AccountRepo
 
 
 router = APIRouter()
-
-
-class AccountForm(BaseModel):
-    username: str
-    password: str
-
-
-class AccountToken(Token):
-    account: AccountOut
-
-
-class HttpError(BaseModel):
-    detail: str
 
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)

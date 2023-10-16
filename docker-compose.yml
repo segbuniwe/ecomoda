@@ -31,3 +31,17 @@ services:
       - 8000:8000
     volumes:
       - ./api:/app
+  client:
+    image: node:lts-bullseye
+    command: /bin/bash run.sh
+    working_dir: /app
+    volumes:
+      - ./client:/app
+    ports:
+      - "3000:3000"
+    environment:
+      HOST_OS: ${OS}
+      NODE_ENV: development
+      HOST: "0.0.0.0"
+      PUBLIC_URL: http://localhost:3000
+      REACT_APP_API_HOST: ${REACT_APP_API_HOST}
