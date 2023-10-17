@@ -10,6 +10,7 @@ from authenticator import authenticator
 from models.accounts import (
     AccountIn,
     DuplicateAccountError,
+    AccountOut,
     AccountForm,
     AccountToken,
     HttpError
@@ -54,3 +55,17 @@ async def get_token(
             "type": "Bearer",
             "account": account,
         }
+
+
+@router.put("/api/accounts", response_model=AccountOut)
+def update_account_info(
+    account: AccountIn,
+    account_id: str,
+    repo: AccountRepo = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    account_id = account_data["id"]
+    return repo.update(
+        account_id=account_id,
+        account=account.dict(),
+    )

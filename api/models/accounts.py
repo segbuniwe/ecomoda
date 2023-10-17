@@ -12,6 +12,7 @@ class AccountIn(BaseModel):
     password: str
     first_name: str
     last_name: str
+    location: str
 
 
 class AccountOut(BaseModel):
@@ -20,6 +21,7 @@ class AccountOut(BaseModel):
     email: str
     first_name: str
     last_name: str
+    location: str
 
 
 class AccountOutWithHashedPassword(AccountOut):

@@ -5,6 +5,7 @@ from models.accounts import (
     AccountIn,
     DuplicateAccountError,
 )
+from bson.objectid import ObjectId
 
 
 class AccountRepo(Queries):
@@ -36,3 +37,12 @@ class AccountRepo(Queries):
         response = self.collection.insert_one(account)
         account["id"] = str(response.inserted_id)
         return AccountOutWithHashedPassword(**account)
+
+    def update(self, account_id: str, account: AccountIn):
+        updated_account = account
+        self.collection.update_one(
+            {"_id": ObjectId(account_id)},
+            {"$set": updated_account},
+        )
+        updated_account["id"] = account_id
+        return AccountOut(**updated_account)
