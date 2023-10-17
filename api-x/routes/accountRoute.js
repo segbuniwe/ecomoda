@@ -8,7 +8,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const account = await Account.find({});
 
-    res.json(accounts);
+    res.json(account);
   })
 );
 
