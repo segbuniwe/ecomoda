@@ -74,7 +74,6 @@ const LoginForm = () => {
               </button>
             </div>
           </form>
-
           <p className='mt-10 text-center text-sm text-emo-tan'>
             Not a registered?{" "}
             <a
