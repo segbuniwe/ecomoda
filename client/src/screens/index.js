@@ -1,9 +1,19 @@
 import React from "react";
 import "../App.css";
 import About from "../components/About";
+import {
+  PassageAuth,
+  PassageUnAuthGuard,
+} from "@passageidentity/passage-react";
+import { Navigate } from "react-router-dom";
 
 const Index = () => {
-  return <About />;
+  return (
+    <PassageUnAuthGuard authComp={<Navigate to='/dashboard' />}>
+      <PassageAuth />
+      <About />
+    </PassageUnAuthGuard>
+  );
 };
 
 export default Index;

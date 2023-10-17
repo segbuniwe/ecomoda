@@ -1,5 +1,6 @@
 import logo from "../logo.png";
 import "../App.css";
+import { PassageProfile } from "@passageidentity/passage-react";
 
 import React from "react";
 
@@ -22,6 +23,7 @@ const UserProfile = () => {
         </div>
         <div className='m-10'>
           <h2>Hello User, you're logged in</h2>
+          <PassageProfile />
         </div>
       </header>
     </div>
