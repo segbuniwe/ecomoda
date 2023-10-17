@@ -13,7 +13,7 @@ router.get(
 );
 
 router.get(
-  "/:id",
+  "/account",
   asyncHandler(async (req, res) => {
     const account = await Account.findById(req.params.id);
     if (account) {
