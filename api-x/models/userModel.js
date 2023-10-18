@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const accountSchema = mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -20,14 +20,14 @@ const accountSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    passageIdentityUserId: {
+      type: String,
+      required: true,
+    },
   },
   {
-    timestamps: true,
+    collection: "users", // Specify the collection name
   }
 );
 
-//need to add passage auth handler/middleware
-
-const Account = mongoose.model("Account", accountSchema);
-
-export default Account;
+module.exports = mongoose.model("User", userSchema);
