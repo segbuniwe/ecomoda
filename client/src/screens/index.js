@@ -10,7 +10,6 @@ import { Navigate } from "react-router-dom";
 const Index = () => {
   return (
     <PassageUnAuthGuard authComp={<Navigate to='/dashboard' />}>
-      <PassageAuth />
       <About />
     </PassageUnAuthGuard>
   );

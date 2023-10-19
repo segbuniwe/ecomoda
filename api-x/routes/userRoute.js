@@ -1,28 +1,7 @@
 const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
+const router = express.Router();
 const Passage = require("@passageidentity/passage-node");
-const connectDB = require("./config/db");
-const User = require("./models/userModel");
-
-require("dotenv").config();
-
-connectDB();
-
-const app = express();
-const CLIENT_URL = "http://localhost:3000";
-
-app.use(express.json());
-
-const userRouter = require("./routes/userRoute");
-
-app.use("/api/users", userRouter);
-
-app.use(
-  cors({
-    origin: CLIENT_URL,
-  })
-);
+const User = require("../models/userModel");
 
 const passage = new Passage({
   appID: process.env.PASSAGE_APP_ID,
@@ -30,13 +9,17 @@ const passage = new Passage({
   authStrategy: "HEADER",
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+//get all users
+router.get("/", async (req, res) => {
+  try {
+    const user = await User.find();
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
-app.post("/auth", async (req, res) => {
+router.post("/auth", async (req, res) => {
   try {
     const userID = await passage.authenticateRequest(req);
     if (userID) {
@@ -66,15 +49,4 @@ app.post("/auth", async (req, res) => {
   }
 });
 
-// Use the clothes route
-app.use("/api/clothes", clothesRoute);
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
-});
+module.exports = router;
