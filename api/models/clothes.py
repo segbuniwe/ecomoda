@@ -4,8 +4,9 @@ from typing import List
 
 class ClothesIn(BaseModel):
     name: str
-    image: str
-    age: int
+    image: dict | str
+    description: str
+    size: str
 
 
 class ClothesOut(ClothesIn):

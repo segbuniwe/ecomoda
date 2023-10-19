@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useLoginMutation } from "./app/apiSlice";
+import { useLoginMutation } from "../app/apiSlice";
 
 const LoginForm = () => {
     const [username, setUsername] = useState("");
