@@ -84,6 +84,8 @@ const SignUpForm = () => {
                             <option value="">Select a location</option>
                             <option value="Atlanta, GA">Atlanta, GA</option>
                             <option value="Boston, MA">Boston, MA</option>
+                            <option value="Dallas, TX">Dallas, TX</option>
+                            <option value="Houston, TX">Houston, TX</option>
                             <option value="Las Vegas, NV">Las Vegas, NV</option>
                             <option value="Los Angeles, CA">Los Angeles, CA</option>
                             <option value="Miami, FL">Miami, FL</option>
