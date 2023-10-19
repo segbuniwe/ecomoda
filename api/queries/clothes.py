@@ -10,10 +10,12 @@ class ClothesRepo(Queries):
             self,
             account_id: str,
             clothes: ClothesIn,
-            account_location: str
+            account_location: str,
+            account_email: str
     ):
         clothes["account_id"] = account_id
         clothes["account_location"] = account_location
+        clothes["account_email"] = account_email
         self.collection.insert_one(clothes)
         clothes["id"] = str(clothes["_id"])
         return ClothesOut(**clothes)
@@ -37,6 +39,7 @@ class ClothesRepo(Queries):
             clothes: ClothesIn,
             account_id: str,
             account_location: str,
+            account_email: str
     ):
         updated_clothes = clothes
         self.collection.update_one(
@@ -46,6 +49,7 @@ class ClothesRepo(Queries):
         updated_clothes["id"] = clothes_id
         updated_clothes["account_id"] = account_id
         updated_clothes["account_location"] = account_location
+        updated_clothes["account_email"] = account_email
         return ClothesOut(**updated_clothes)
 
     def get_all_clothes(self):

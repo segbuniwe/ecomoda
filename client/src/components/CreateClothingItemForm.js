@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useCreateClothesMutation } from "../app/apiSlice";
+import { useCreateClothesMutation, useGetAccountQuery } from "../app/apiSlice";
+import { useNavigate } from 'react-router-dom';
 
 const CreateClothingItemForm = () => {
     const [name, setName] = useState('');
@@ -7,6 +8,8 @@ const CreateClothingItemForm = () => {
     const [size, setSize] = useState('');
     const [image, setImage] = useState("");
     const [clothing, clothingResult] = useCreateClothesMutation();
+    const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (clothingResult.error) {
@@ -22,6 +25,12 @@ const CreateClothingItemForm = () => {
             alert("Clothing created successfully.");
         }
     }, [clothingResult]);
+
+    useEffect(() => {
+        if (!isAccountLoading && !account) {
+            navigate("/");
+        }
+    }, [isAccountLoading, account, navigate]);
 
     // const handleImageUpload = (acceptedFiles) => {
     //     console.log(acceptedFiles);

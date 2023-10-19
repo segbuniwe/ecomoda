@@ -88,8 +88,8 @@ const SignUpForm = () => {
                             <option value="Los Angeles, CA">Los Angeles, CA</option>
                             <option value="Miami, FL">Miami, FL</option>
                             <option value="Nashville, TN">Nashville, TN</option>
-                            <option value="Philadelphia, PA">Philadelphia, PA</option>
                             <option value="New York, NY">New York, NY</option>
+                            <option value="Philadelphia, PA">Philadelphia, PA</option>
                             <option value="San Francisco, CA">San Francisco, CA</option>
                         </select>
                     </div>

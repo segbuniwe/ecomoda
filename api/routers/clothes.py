@@ -19,7 +19,13 @@ def create_clothing_item(
 ):
     account_id = account_data["id"]
     account_location = account_data["location"]
-    return repo.create(account_id, clothes.dict(), account_location)
+    account_email = account_data["email"]
+    return repo.create(
+        account_id,
+        clothes.dict(),
+        account_location,
+        account_email
+    )
 
 
 @router.get("/api/clothes/mine", response_model=Clothes)
@@ -52,6 +58,7 @@ def update_clothing_item(
         clothes=clothes.dict(),
         account_id=account_data["id"],
         account_location=account_data["location"],
+        account_email=account_data["email"]
     )
 
 

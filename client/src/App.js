@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm';
 import CreateClothingItemForm from './components/CreateClothingItemForm';
 import ClothesList from './components/ClothesList';
 import Navbar from './components/Navbar';
+import ClothingDetailPage from './components/ClothingDetailPage';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route exact path='/login' element={<LoginForm />}></Route>
             <Route exact path='/create' element={<CreateClothingItemForm />}></Route>
             <Route exact path='/clothes' element={<ClothesList />}></Route>
+            <Route exact path='/clothes/:clothes_id' element={<ClothingDetailPage />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

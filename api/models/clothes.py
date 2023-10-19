@@ -13,6 +13,7 @@ class ClothesOut(ClothesIn):
     id: str
     account_id: str
     account_location: str
+    account_email: str
 
 
 class Clothes(BaseModel):
