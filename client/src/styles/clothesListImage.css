@@ -1,0 +1,12 @@
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item-img {
+    width: 200px;
+    height: auto;
+}
