@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSignupMutation } from './app/apiSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const SignUpForm = () => {
     const [username, setUsername] = useState('');
@@ -14,10 +14,15 @@ const SignUpForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (signupResult.error) {
+            if (signupResult.error.status === 400) {
+                alert(signupResult.error.data.detail);
+            }
+        }
         if (signupResult.isSuccess) {
             navigate("/");
         }
-    })
+    }, [signupResult, navigate])
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -114,6 +119,9 @@ const SignUpForm = () => {
                             value={confirmPassword}
                             onChange={(e) => { setConfirmPassword(e.target.value) }}
                         />
+                    </div>
+                    <div>
+                        Already have an account? Click here to <Link to={"/login"}>login</Link>
                     </div>
                     <div>
                         <button type='submit'>Register</button>
