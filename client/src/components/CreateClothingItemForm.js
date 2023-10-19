@@ -32,10 +32,6 @@ const CreateClothingItemForm = () => {
         }
     }, [isAccountLoading, account, navigate]);
 
-    // const handleImageUpload = (acceptedFiles) => {
-    //     console.log(acceptedFiles);
-    //     setImage(acceptedFiles[0]);
-    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();

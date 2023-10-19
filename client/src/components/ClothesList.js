@@ -24,7 +24,6 @@ function ClothesList() {
 
     const handleSortSubmit = (e) => {
         e.preventDefault();
-        console.log(sort);
         if (sort) {
             const filteredClothes = clothes.filter((clothing) =>
                 clothing.account_location === sort
