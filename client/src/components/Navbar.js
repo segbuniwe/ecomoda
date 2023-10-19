@@ -14,6 +14,21 @@ function Navbar() {
                     </NavLink>
                     <div>
                         <ul>
+                            <li>
+                                <NavLink to="/about">
+                                    About
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/guidelines">
+                                    Community Guidelines
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/education">
+                                    How You Can Help!
+                                </NavLink>
+                            </li>
                             {account && (
                                 <li>
                                     <NavLink
