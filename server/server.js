@@ -13,6 +13,15 @@ connectDB();
 const app = express();
 const CLIENT_URL = "http://localhost:3000";
 
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    methods: "GET,PUT,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 204,
+  })
+);
+
 app.use(express.json());
 
 const userRouter = require("./routes/userRoute");
@@ -20,12 +29,6 @@ const userRouter = require("./routes/userRoute");
 app.use("/api/users", userRouter);
 
 app.use("/api/clothes", clothesRouter);
-
-app.use(
-  cors({
-    origin: CLIENT_URL,
-  })
-);
 
 const passage = new Passage({
   appID: process.env.PASSAGE_APP_ID,
@@ -68,9 +71,6 @@ app.post("/auth", async (req, res) => {
     });
   }
 });
-
-// Use the clothes route
-// app.use("/api/clothes", clothesRoute);
 
 app.get("/", (req, res) => {
   res.send("API is running...");

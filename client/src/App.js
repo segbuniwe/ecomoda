@@ -4,6 +4,8 @@ import { PassageProvider } from "@passageidentity/passage-react";
 import Index from "./screens/index";
 import Login from "./screens/login";
 import Dashboard from "./screens/dashboard";
+import CreateClothingItemForm from "./components/CreateClothingItemForm";
+import ClothesList from "./components/ClothesList";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
             <Route exact path='/' element={<Index />} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/dashboard' element={<Dashboard />} />
+            <Route exact path="/create" element={<CreateClothingItemForm />} />
+            <Route exact path="/clothes" element={<ClothesList />} />
           </Routes>
         </Router>
       </>

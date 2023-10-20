@@ -2,25 +2,24 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
 const Clothes = require("../models/clothesModel");
-const asyncHandler = require("express-async-handler");
+// const asyncHandler = require("express-async-handler");
 
 // Create clothing
 router.post(
-    "/",
-    asyncHandler(async (req, res) => {
-        const { name, image, description, size, userId } = req.body;
+    "/", (async (req, res) => {
+        const { name, image, description, size } = req.body;
 
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(400).json({ message: "Invalid user ID" });
-        }
+        // const user = await User.findById(userId);
+        // if (!user) {
+        //     return res.status(400).json({ message: "Invalid user ID" });
+        // }
 
         const newClothes = new Clothes({
             name,
             image,
             description,
             size,
-            user: userId,
+            // user: userId,
         });
 
         await newClothes.save();
@@ -31,9 +30,8 @@ router.post(
 
 // Get all clothes from all users
 router.get(
-    "/",
-    asyncHandler(async (req, res) => {
-        const clothes = await Clothes.find().populate('user');
+    "/list", (async (req, res) => {
+        const clothes = await Clothes.find();
 
         res.json(clothes);
     })
@@ -41,8 +39,7 @@ router.get(
 
 // Get a specific clothes by ID
 router.get(
-    "/:id",
-    asyncHandler(async (req, res) => {
+    "/:id", (async (req, res) => {
         const clothes = await Clothes.findById(req.params.id).populate('user');
 
         if (clothes) {
@@ -55,8 +52,7 @@ router.get(
 
 // Get all clothes from a single user
 router.get(
-    "/user/:userId",
-    asyncHandler(async (req, res) => {
+    "/user/:userId", (async (req, res) => {
         const userId = req.params.userId;
 
         // Find all clothes owned by the user with the specified userId
@@ -68,8 +64,7 @@ router.get(
 
 // Update clothes by ID
 router.put(
-    "/:id",
-    asyncHandler(async (req, res) => {
+    "/:id", (async (req, res) => {
         const { name, image, description, size } = req.body;
 
         const clothes = await Clothes.findById(req.params.id);
@@ -90,8 +85,7 @@ router.put(
 
 // Delete clothes by ID
 router.delete(
-    "/:id",
-    asyncHandler(async (req, res) => {
+    "/:id", (async (req, res) => {
         const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
