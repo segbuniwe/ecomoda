@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const clothesSchema = mongoose.Schema(
+const clothesSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -10,18 +10,25 @@ const clothesSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        age: {
-            type: Number,
+        description: {
+            type: String,
+            required: true,
+        },
+        size: {
+            type: String,
+            required: true,
+        },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true,
         },
     },
     {
-        timestamps: true,
+        collection: "clothes", // Specify the collection name
     }
 );
 
 //need to add passage auth handler/middleware
 
-const Clothes = mongoose.model("Clothes", clothesSchema);
-
-export default Clothes;
+module.exports = mongoose.model("Clothes", clothesSchema);

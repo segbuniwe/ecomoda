@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import About from "../components/About";
 import {
-  PassageAuth,
+  // PassageAuth,
   PassageUnAuthGuard,
 } from "@passageidentity/passage-react";
 import { Navigate } from "react-router-dom";

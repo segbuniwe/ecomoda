@@ -1,28 +1,27 @@
-import express from "express";
-import asyncHandler from "express-async-handler";
-import Clothes from "../models/clothesModel";
-import Account from "../models/accountModel";
-
+const express = require("express");
 const router = express.Router();
+const User = require("../models/userModel");
+const Clothes = require("../models/clothesModel");
+const asyncHandler = require("express-async-handler");
 
 // Create clothing
 router.post(
     "/",
     asyncHandler(async (req, res) => {
-        const { name, image, age, accountId } = req.body;
+        const { name, image, description, size, userId } = req.body;
 
-        const account = await Account.findById(accountId);
-        if (!account) {
-            return res.status(400).json({ message: "Invalid account ID" });
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(400).json({ message: "Invalid user ID" });
         }
 
         const newClothes = new Clothes({
             name,
             image,
-            age,
+            description,
+            size,
+            user: userId,
         });
-
-        newClothes.account = accountId;
 
         await newClothes.save();
 
@@ -30,11 +29,11 @@ router.post(
     })
 );
 
-// Get all clothes from all accounts
+// Get all clothes from all users
 router.get(
     "/",
     asyncHandler(async (req, res) => {
-        const clothes = await Clothes.find({});
+        const clothes = await Clothes.find().populate('user');
 
         res.json(clothes);
     })
@@ -44,7 +43,7 @@ router.get(
 router.get(
     "/:id",
     asyncHandler(async (req, res) => {
-        const clothes = await Clothes.findById(req.params.id);
+        const clothes = await Clothes.findById(req.params.id).populate('user');
 
         if (clothes) {
             res.json(clothes);
@@ -54,18 +53,14 @@ router.get(
     })
 );
 
-// Get all clothes from a single account
+// Get all clothes from a single user
 router.get(
-    "/account/:accountId",
+    "/user/:userId",
     asyncHandler(async (req, res) => {
-        const accountId = req.params.accountId;
+        const userId = req.params.userId;
 
-        const account = await Account.findById(accountId);
-        if (!account) {
-            return res.status(404).json({ message: "Account not found" });
-        }
-
-        const clothes = await Clothes.find({ account: accountId });
+        // Find all clothes owned by the user with the specified userId
+        const clothes = await Clothes.find({ user: userId }).populate('user');
 
         res.json(clothes);
     })
@@ -75,14 +70,15 @@ router.get(
 router.put(
     "/:id",
     asyncHandler(async (req, res) => {
-        const { name, image, age } = req.body;
+        const { name, image, description, size } = req.body;
 
         const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
             clothes.name = name || clothes.name;
             clothes.image = image || clothes.image;
-            clothes.age = age || clothes.age;
+            clothes.description = description || clothes.description;
+            clothes.size = size || clothes.size;
 
             const updatedClothes = await clothes.save();
             res.json(updatedClothes);
@@ -107,4 +103,4 @@ router.delete(
     })
 );
 
-export default router;
+module.exports = router;

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Passage = require("@passageidentity/passage-node");
 const connectDB = require("./config/db");
 const User = require("./models/userModel");
+const clothesRouter = require("./routes/clothesRoute");
 
 require("dotenv").config();
 
@@ -17,6 +18,8 @@ app.use(express.json());
 const userRouter = require("./routes/userRoute");
 
 app.use("/api/users", userRouter);
+
+app.use("/api/clothes", clothesRouter);
 
 app.use(
   cors({
@@ -67,7 +70,7 @@ app.post("/auth", async (req, res) => {
 });
 
 // Use the clothes route
-app.use("/api/clothes", clothesRoute);
+// app.use("/api/clothes", clothesRoute);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
