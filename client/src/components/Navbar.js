@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
+import { usePassageUserInfo } from "../hooks";
 
 function Navbar() {
+    const { userInfo } = usePassageUserInfo();
 
     return (
         <header>
@@ -12,11 +14,11 @@ function Navbar() {
                                 EcoModa
                             </NavLink>
                         </li>
-                        <li>
+                        {userInfo && (<li>
                             <NavLink to="/dashboard">
                                 Dashboard
                             </NavLink>
-                        </li>
+                        </li>)}
                         <li>
                             <NavLink to="/mission">
                                 About
@@ -37,20 +39,27 @@ function Navbar() {
                                 Meet the Team
                             </NavLink>
                         </li>
-                        <li>
+                        {userInfo && (<li>
                             <NavLink
                                 to="/clothes"
                             >
                                 Search For Clothes
                             </NavLink>
-                        </li>
-                        <li>
+                        </li>)}
+                        {userInfo && (<li>
                             <NavLink
                                 to="/create"
                             >
                                 Create Clothing Listing
                             </NavLink>
-                        </li>
+                        </li>)}
+                        {!userInfo && (<li>
+                            <NavLink
+                                to="/"
+                            >
+                                Login
+                            </NavLink>
+                        </li>)}
                     </ul>
                 </div>
             </nav>
