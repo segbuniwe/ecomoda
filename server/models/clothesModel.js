@@ -18,6 +18,14 @@ const clothesSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        contact: {
+            type: String || Number,
+            required: true,
+        },
+        location: {
+            type: String,
+            required: true,
+        }
         // user: {
         //     type: mongoose.Schema.Types.ObjectId,
         //     ref: "User",

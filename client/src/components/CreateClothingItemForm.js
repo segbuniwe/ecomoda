@@ -5,21 +5,21 @@ const CreateClothingItemForm = () => {
     const [description, setDescription] = useState('');
     const [size, setSize] = useState('');
     const [image, setImage] = useState('');
+    const [contact, setContact] = useState('');
+    const [location, setLocation] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Create an object with the clothing data
         const clothingData = {
             name,
             description,
             size,
             image,
+            contact,
+            location,
         };
 
-        // Send the clothing data to your API endpoint for creation
-        // You can use fetch or axios to make a POST request to your server
-        // Replace 'your-api-endpoint' with the actual endpoint
         fetch('http://localhost:5001/api/clothes', {
             method: 'POST',
             headers: {
@@ -29,13 +29,14 @@ const CreateClothingItemForm = () => {
         })
             .then((response) => {
                 if (response.status === 201) {
-                    // Clothing item created successfully
                     console.log('Clothing item created successfully');
-                    // Optionally, reset the form fields
+
                     setName('');
                     setDescription('');
                     setSize('');
                     setImage('');
+                    setContact('');
+                    setLocation('');
                 } else {
                     // Handle errors, e.g., display an error message
                     console.error('Failed to create clothing item');
@@ -79,6 +80,36 @@ const CreateClothingItemForm = () => {
                     onChange={(e) => setImage(e.target.value)}
                 />
             </div>
+            <div>
+                <label>Contact Information: Email/Phone Number</label>
+                <input
+                    type="text"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                />
+            </div>
+            <div>
+                        <label htmlFor="location">Location</label>
+                        <select
+                            name="location"
+                            type='text'
+                            value={location}
+                            onChange={(e) => { setLocation(e.target.value) }}
+                        >
+                            <option value="">Select a location</option>
+                            <option value="Atlanta, GA">Atlanta, GA</option>
+                            <option value="Boston, MA">Boston, MA</option>
+                            <option value="Dallas, TX">Dallas, TX</option>
+                            <option value="Houston, TX">Houston, TX</option>
+                            <option value="Las Vegas, NV">Las Vegas, NV</option>
+                            <option value="Los Angeles, CA">Los Angeles, CA</option>
+                            <option value="Miami, FL">Miami, FL</option>
+                            <option value="Nashville, TN">Nashville, TN</option>
+                            <option value="New York, NY">New York, NY</option>
+                            <option value="Philadelphia, PA">Philadelphia, PA</option>
+                            <option value="San Francisco, CA">San Francisco, CA</option>
+                        </select>
+                    </div>
             <button type="submit">Create Clothing</button>
         </form>
     );

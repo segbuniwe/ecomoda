@@ -1,13 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/userModel");
+// const User = require("../models/userModel");
 const Clothes = require("../models/clothesModel");
 // const asyncHandler = require("express-async-handler");
 
 // Create clothing
 router.post(
     "/", (async (req, res) => {
-        const { name, image, description, size } = req.body;
+        const {
+            name,
+            image,
+            description,
+            size,
+            contact,
+            location
+        } = req.body;
 
         // const user = await User.findById(userId);
         // if (!user) {
@@ -19,6 +26,8 @@ router.post(
             image,
             description,
             size,
+            contact,
+            location,
             // user: userId,
         });
 
@@ -40,7 +49,7 @@ router.get(
 // Get a specific clothes by ID
 router.get(
     "/:id", (async (req, res) => {
-        const clothes = await Clothes.findById(req.params.id).populate('user');
+        const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
             res.json(clothes);
@@ -96,5 +105,6 @@ router.delete(
         }
     })
 );
+
 
 module.exports = router;
