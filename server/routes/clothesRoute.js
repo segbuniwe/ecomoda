@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const User = require("../models/userModel");
 const Clothes = require("../models/clothesModel");
-// const asyncHandler = require("express-async-handler");
 
 // Create clothing
 router.post(
@@ -16,11 +14,6 @@ router.post(
             location
         } = req.body;
 
-        // const user = await User.findById(userId);
-        // if (!user) {
-        //     return res.status(400).json({ message: "Invalid user ID" });
-        // }
-
         const newClothes = new Clothes({
             name,
             image,
@@ -28,7 +21,6 @@ router.post(
             size,
             contact,
             location,
-            // user: userId,
         });
 
         await newClothes.save();

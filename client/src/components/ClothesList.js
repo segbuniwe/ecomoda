@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ClothesList() {
     const [search, setSearch] = useState("");
     const [sort, setSort] = useState("");
-    const [data, setData] = useState([]); // Store the original data
+    const [data, setData] = useState([]);
     const [filteredClothes, setFilteredClothes] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,7 @@ function ClothesList() {
                 }
 
                 const clothesData = await response.json();
-                setData(clothesData); // Store the original data
+                setData(clothesData);
                 setFilteredClothes(clothesData);
                 setLoading(false);
             } catch (error) {
@@ -33,7 +33,7 @@ function ClothesList() {
 
     const handleSortSubmit = (e) => {
         e.preventDefault();
-        let filtered = [...data]; // Use a copy of the original data
+        let filtered = [...data];
 
         if (sort) {
             filtered = filtered.filter((clothing) =>
@@ -46,7 +46,7 @@ function ClothesList() {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        let filtered = [...data]; // Use a copy of the original data
+        let filtered = [...data];
 
         if (search) {
             filtered = filtered.filter((clothing) =>
@@ -108,7 +108,7 @@ function ClothesList() {
                         onClick={() => {
                             setSearch("");
                             setSort("");
-                            setFilteredClothes(data); // Reset to original data
+                            setFilteredClothes(data);
                         }}
                     >
                         Reset

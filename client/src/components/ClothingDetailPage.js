@@ -7,7 +7,6 @@ function ClothingDetailPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch clothes data
         fetch(`http://localhost:5001/api/clothes/${clothes_id}`)
             .then((response) => {
                 if (!response.ok) {

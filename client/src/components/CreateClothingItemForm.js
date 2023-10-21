@@ -38,7 +38,6 @@ const CreateClothingItemForm = () => {
                     setContact('');
                     setLocation('');
                 } else {
-                    // Handle errors, e.g., display an error message
                     console.error('Failed to create clothing item');
                 }
             })

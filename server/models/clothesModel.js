@@ -26,17 +26,11 @@ const clothesSchema = new mongoose.Schema(
             type: String,
             required: true,
         }
-        // user: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: "User",
-        //     required: true,
-        // },
     },
     {
-        collection: "clothes", // Specify the collection name
+        collection: "clothes",
     }
 );
 
-//need to add passage auth handler/middleware
 
 module.exports = mongoose.model("Clothes", clothesSchema);
