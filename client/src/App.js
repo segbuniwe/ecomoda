@@ -12,6 +12,7 @@ import TeamSocialsPage from "./components/TeamSocialsPage";
 import CommunityGuidelines from "./components/CommunityGuidelines";
 import EducationPage from "./components/EducationPage";
 import Navbar from "./components/Navbar";
+import MainPage from "./components/MainPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/team" element={<TeamSocialsPage />} />
             <Route exact path="/guidelines" element={<CommunityGuidelines />} />
             <Route exact path="/educate" element={<EducationPage />} />
+            <Route exact path="/home" element={<MainPage />} />
           </Routes>
         </Router>
       </>

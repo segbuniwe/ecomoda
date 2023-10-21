@@ -8,8 +8,6 @@ function ClothesList() {
     const [filteredClothes, setFilteredClothes] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    console.log(filteredClothes);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,9 +29,10 @@ function ClothesList() {
         fetchData();
     }, []);
 
+    let filtered = [...filteredClothes]
+
     const handleSortSubmit = (e) => {
         e.preventDefault();
-        let filtered = [...data];
 
         if (sort) {
             filtered = filtered.filter((clothing) =>
@@ -46,7 +45,6 @@ function ClothesList() {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        let filtered = [...data];
 
         if (search) {
             filtered = filtered.filter((clothing) =>

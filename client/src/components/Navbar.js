@@ -8,6 +8,16 @@ function Navbar() {
                 <div>
                     <ul>
                         <li>
+                            <NavLink to="/home">
+                                EcoModa
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dashboard">
+                                Dashboard
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="/mission">
                                 About
                             </NavLink>
