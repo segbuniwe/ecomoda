@@ -6,11 +6,14 @@ import {
   PassageUnAuthGuard,
 } from "@passageidentity/passage-react";
 import { Navigate } from "react-router-dom";
+import Layout from "../components/Layout";
 
 const Index = () => {
   return (
     <PassageUnAuthGuard authComp={<Navigate to='/dashboard' />}>
-      <About />
+      <Layout>
+        <About />
+      </Layout>
     </PassageUnAuthGuard>
   );
 };
