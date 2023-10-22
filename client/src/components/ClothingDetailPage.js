@@ -8,9 +8,7 @@ function ClothingDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://main.d3u3eipz2iqdk9.amplifyapp.com/api/clothes/${clothes_id}`
-    )
+    fetch(`http://localhost:5001/api/clothes/${clothes_id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

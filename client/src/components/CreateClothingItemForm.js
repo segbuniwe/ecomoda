@@ -21,7 +21,7 @@ const CreateClothingItemForm = () => {
       location,
     };
 
-    fetch("https://main.d3u3eipz2iqdk9.amplifyapp.com/api/clothes", {
+    fetch("http://localhost:5001/api/clothes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
