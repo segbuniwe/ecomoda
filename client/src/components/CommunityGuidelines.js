@@ -2,7 +2,7 @@ import React from "react";
 
 function CommunityGuidelines() {
   return (
-    <div className='mx-auto max-w-7xl bg-gray-50 py-6 my-12 rounded-xl'>
+    <div className='mx-auto max-w-7xl bg-gray-100 py-6 my-12 rounded-xl'>
       <div className='mx-auto max-w-6xl py-6 px-6'>
         <h1 className='text-4xl font-bold'>
           Registration & Community Guidelines
