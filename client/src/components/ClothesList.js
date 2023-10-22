@@ -12,9 +12,7 @@ function ClothesList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_HOST}/api/clothes/list`
-        );
+        const response = await fetch("http://localhost:5001/api/clothes/list");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
