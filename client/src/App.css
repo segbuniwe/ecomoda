@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
-.App-link {
-  color: #0d131f;
+
+
+footer {
+  position: sticky;
+  bottom: 0;
+}
+
+nav {
+  z-index: 20;
 }
