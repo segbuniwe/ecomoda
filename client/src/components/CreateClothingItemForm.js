@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../styles/createclothes.css";
 
 const CreateClothingItemForm = () => {
     const [name, setName] = useState('');
@@ -47,8 +48,8 @@ const CreateClothingItemForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form onSubmit={handleSubmit} className='create-clothing-form'>
+            <div className='form-group'>
                 <label>Name</label>
                 <input
                     type="text"
@@ -56,14 +57,14 @@ const CreateClothingItemForm = () => {
                     onChange={(e) => setName(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='form-group'>
                 <label>Description</label>
                 <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='form-group'>
                 <label>Size</label>
                 <input
                     type="text"
@@ -71,7 +72,7 @@ const CreateClothingItemForm = () => {
                     onChange={(e) => setSize(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='form-group'>
                 <label>Image URL</label>
                 <input
                     type="text"
@@ -79,15 +80,15 @@ const CreateClothingItemForm = () => {
                     onChange={(e) => setImage(e.target.value)}
                 />
             </div>
-            <div>
-                <label>Contact Information: Email/Phone Number</label>
+            <div className='form-group'>
+                <label>Contact Information: Email or Phone Number</label>
                 <input
                     type="text"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='form-group'>
                         <label htmlFor="location">Location</label>
                         <select
                             name="location"
@@ -109,7 +110,7 @@ const CreateClothingItemForm = () => {
                             <option value="San Francisco, CA">San Francisco, CA</option>
                         </select>
                     </div>
-            <button type="submit">Create Clothing</button>
+            <button type="submit" className='create-button'>Create Clothing</button>
         </form>
     );
 };

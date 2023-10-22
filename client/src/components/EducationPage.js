@@ -25,6 +25,7 @@ function EducationPage() {
       </div>
     </div>
   );
+
 }
 
 export default EducationPage;

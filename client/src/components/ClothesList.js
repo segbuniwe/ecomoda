@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../styles/clotheslist.css";
 
 function ClothesList() {
     const [search, setSearch] = useState("");
@@ -56,10 +57,10 @@ function ClothesList() {
     };
 
     return (
-        <div>
-            <div>
-                <form onSubmit={handleSearchSubmit}>
-                    <div>
+        <div className="clothes-list-container">
+            <div className="search-filter-forms">
+                <form onSubmit={handleSearchSubmit} className="search-form">
+                    <div className="search-input">
                         <input
                             type="text"
                             value={search}
@@ -67,14 +68,14 @@ function ClothesList() {
                             placeholder="Search By Item Name"
                         />
                     </div>
-                    <div>
+                    <div className="search-button">
                         <button type="submit">
                             Search
                         </button>
                     </div>
                 </form>
 
-                <form onSubmit={handleSortSubmit}>
+                <form onSubmit={handleSortSubmit} className="filter-form">
                     <select
                         value={sort}
                         onChange={(e) => {
@@ -95,12 +96,12 @@ function ClothesList() {
                         <option value="Philadelphia, PA">Philadelphia, PA</option>
                         <option value="San Francisco, CA">San Francisco, CA</option>
                     </select>
-                    <div>
+                    <div className="filter-button">
                         <button type='submit'>Sort</button>
                     </div>
                 </form>
 
-                <div>
+                <div className="reset-button">
                     <button
                         type="button"
                         onClick={() => {
@@ -113,19 +114,19 @@ function ClothesList() {
                     </button>
                 </div>
             </div>
-            <div>
+            <div className="clothing-list">
                 <h1>Clothing List</h1>
                 {loading ? (
                     <p>Loading...</p>
                 ) : filteredClothes.length > 0 ? (
                     filteredClothes.map((clothing) => (
-                            <div key={clothing._id}>
-                                <img src={clothing.image} alt={clothing.name} />
-                                <Link to={`/clothes/${clothing._id}`}>
-                                    {clothing.name}
-                                </Link>
-                            </div>
-                        ))
+                        <div key={clothing._id} className="clothing-item">
+                            <img src={clothing.image} alt={clothing.name} className="clothing-image" />
+                            <Link to={`/clothes/${clothing._id}`} className="clothing-link">
+                                {clothing.name}
+                            </Link>
+                        </div>
+                    ))
                 ) : (
                     <p>No clothing found.</p>
                 )}
