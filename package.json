@@ -2,8 +2,6 @@
   "name": "EcoModa",
   "version": "1.0.0",
   "scripts": {
-    "client-build": "cd client && npm install && npm run build",
-    "server-build": "cd server && npm install && npm run build",
-    "deploy": "npm run client-build && npm run server-build"
+    "start": "node server.js"
   }
 }
