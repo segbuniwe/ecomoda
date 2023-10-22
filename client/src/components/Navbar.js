@@ -15,6 +15,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { usePassageUserInfo } from "../hooks";
 import LogoutButton from "./LogoutButton";
+import logo from "../logo.png";
 
 const products = [
   {
@@ -50,7 +51,7 @@ export default function Navbar() {
   const { userInfo } = usePassageUserInfo();
 
   return (
-    <header className='bg-white'>
+    <header className='bg-emo-teal'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 nav'
         aria-label='Global'
@@ -58,25 +59,25 @@ export default function Navbar() {
         <div className='flex lg:flex-1'>
           <a href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>EcoModa</span>
-            <p className='font-bold text-xl'>EcoModa</p>
+            <img className='w-1/2' src={logo} alt='EcoModa' />
           </a>
         </div>
         <div className='flex lg:hidden'>
           <button
             type='button'
-            className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
+            className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-emo-tan'
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className='sr-only'>Open main menu</span>
-            <Bars3Icon className='h-6 w-6' aria-hidden='true' />
+            <Bars3Icon className='h-10 w-10' aria-hidden='true' />
           </button>
         </div>
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900'>
+            <Popover.Button className='flex items-center gap-x-1 text-md font-semibold leading-6'>
               About
               <ChevronDownIcon
-                className='h-5 w-5 flex-none text-gray-400'
+                className='h-8 w-8 flex-none text-emo-tan'
                 aria-hidden='true'
               />
             </Popover.Button>
@@ -95,7 +96,7 @@ export default function Navbar() {
                   {products.map((item) => (
                     <div
                       key={item.name}
-                      className='group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'
+                      className='group relative flex items-center gap-x-6 rounded-lg p-4 text-md leading-6 hover:bg-gray-50'
                     >
                       <div className='flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
@@ -121,7 +122,7 @@ export default function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className='flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100'
+                      className='flex items-center justify-center gap-x-2.5 p-3 text-md font-semibold leading-6 text-gray-900 hover:bg-gray-100'
                     >
                       <item.icon
                         className='h-5 w-5 flex-none text-gray-400'
@@ -137,19 +138,19 @@ export default function Navbar() {
 
           <a
             href='/guidelines'
-            className='text-sm font-semibold leading-6 text-gray-900'
+            className='text-md font-semibold leading-6 text-gray-900'
           >
             Community Guidelines
           </a>
           <a
             href='/educate'
-            className='text-sm font-semibold leading-6 text-gray-900'
+            className='text-md font-semibold leading-6 text-gray-900'
           >
             How You Can Help!
           </a>
           <a
             href='/support'
-            className='text-sm font-semibold leading-6 text-gray-900'
+            className='text-md font-semibold leading-6 text-gray-900'
           >
             Support
           </a>
@@ -157,7 +158,7 @@ export default function Navbar() {
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           <a
             href='/login'
-            className='text-sm font-semibold leading-6 text-gray-900'
+            className='text-md font-semibold leading-6 text-gray-900'
           >
             Log in <span aria-hidden='true'>&rarr;</span>
           </a>
@@ -170,11 +171,11 @@ export default function Navbar() {
         onClose={setMobileMenuOpen}
       >
         <div className='fixed inset-0 z-10' />
-        <Dialog.Panel className='fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
+        <Dialog.Panel className='fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-emo-teal px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
           <div className='flex items-center justify-between'>
             <a href='/' className='-m-1.5 p-1.5'>
               <span className='sr-only'>EcoModa</span>
-              <p className='font-bold text-xl'>EcoModa</p>
+              <img className='w-1/2' src={logo} alt='EcoModa' />
             </a>
             <button
               type='button'
@@ -182,7 +183,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className='sr-only'>Close menu</span>
-              <XMarkIcon className='h-6 w-6' aria-hidden='true' />
+              <XMarkIcon className='h-10 w-10' aria-hidden='true' />
             </button>
           </div>
           <div className='mt-6 flow-root'>
