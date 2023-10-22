@@ -12,6 +12,7 @@ import Guidelines from "./screens/guidelines";
 import Educate from "./screens/educate";
 import MainPage from "./components/MainPage";
 import Support from "./screens/support";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route exact path='/guidelines' element={<Guidelines />} />
             <Route exact path='/educate' element={<Educate />} />
             <Route exact path='/home' element={<MainPage />} />
+            <Route exact path="/chat" element={<Chatbot />} />
           </Routes>
         </Router>
       </>
