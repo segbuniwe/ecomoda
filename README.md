@@ -22,7 +22,7 @@ Created for: Women Who Code Hackathon For Social Good Oct 2023
 3. Create a `.env` file in the root directory, set the `NOD_ENV=production`, set the `PORT=a port number of your choosing like 5001`, and set the `MONGODB_URI=your mongo database`
 4. Signup and get an API key and APP ID from Passage (https://console.passage.id/)
 5. In the `.env` file created, set it as `PASSAGE_APP_ID=passage app ID` and `PASSAGE_API_KEY=passage api key`
-6. Create a `.env` file inside the client directory. Set `GENERATE_SOURCEMAP=false`, `REACT_APP_PASSAGE_ID=passage app ID`, and `REACT_APP_API_HOST=http://localhost:5001 or whatever your port may be`.
+6. In the root directory`.env`, set `GENERATE_SOURCEMAP=false`, `REACT_APP_PASSAGE_ID=passage app ID`, and `REACT_APP_API_HOST=http://localhost:5001 or whatever your port may be`.
 7. Run `docker volume create mongodb-data`
 8. Run `docker-compose up --build`
 9. Go to http://localhost:3000.
