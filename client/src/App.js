@@ -12,14 +12,12 @@ import TeamSocialsPage from "./components/TeamSocialsPage";
 import CommunityGuidelines from "./components/CommunityGuidelines";
 import EducationPage from "./components/EducationPage";
 import MainPage from "./components/MainPage";
-import Menu from "./components/Menu";
 
 function App() {
   return (
     <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
       <>
         <Router>
-          <Menu />
           <Routes>
             <Route exact path='/' element={<Index />} />
             <Route exact path='/login' element={<Login />} />

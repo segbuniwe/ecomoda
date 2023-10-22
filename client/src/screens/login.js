@@ -1,9 +1,20 @@
 import React from "react";
 import "../App.css";
-import LoginForm from "../components/Login-Form";
+import Loginform from "../components/Login-Form";
+import {
+  // PassageAuth,
+  PassageUnAuthGuard,
+} from "@passageidentity/passage-react";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  return <LoginForm />;
+  return (
+    <div className='App-header'>
+      <PassageUnAuthGuard authComp={<Navigate to='/dashboard' />}>
+        <Loginform />
+      </PassageUnAuthGuard>
+    </div>
+  );
 };
 
 export default Login;
