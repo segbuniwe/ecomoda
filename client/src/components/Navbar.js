@@ -30,12 +30,6 @@ const products = [
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
     name: "FAQS",
     description: "Build strategic funnels that will convert",
     href: "#",
