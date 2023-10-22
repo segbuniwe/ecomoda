@@ -2,15 +2,14 @@ import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
-  Bars3Icon,
+  Bars3CenterLeftIcon,
   ChartPieIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
-  PhoneIcon,
+  ChatBubbleLeftEllipsisIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import { usePassageUserInfo } from "../hooks";
@@ -21,7 +20,7 @@ const products = [
   {
     name: "Mission",
     description: "Get a better understanding of your traffic",
-    href: "/mission",
+    href: "/",
     icon: ChartPieIcon,
   },
   {
@@ -38,8 +37,8 @@ const products = [
   },
 ];
 const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
+  { name: "How you can help!", href: "/educate", icon: PlayCircleIcon },
+  { name: "Support", href: "/support", icon: ChatBubbleLeftEllipsisIcon },
 ];
 
 function classNames(...classes) {
@@ -69,7 +68,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className='sr-only'>Open main menu</span>
-            <Bars3Icon className='h-10 w-10' aria-hidden='true' />
+            <Bars3CenterLeftIcon className='h-10 w-10' aria-hidden='true' />
           </button>
         </div>
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
@@ -91,7 +90,7 @@ export default function Navbar() {
               leaveFrom='opacity-100 translate-y-0'
               leaveTo='opacity-0 translate-y-1'
             >
-              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
+              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-gray-100 shadow-lg ring-1 ring-gray-900/5'>
                 <div className='p-4'>
                   {products.map((item) => (
                     <div

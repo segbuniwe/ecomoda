@@ -39,7 +39,7 @@ const navigation = [
 export default function Footer() {
   return (
     <footer className='bg-emo-teal'>
-      <div className='mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 py-3 md:flex md:items-center md:justify-between lg:px-8'>
         <div className='flex justify-center space-x-6 md:order-2'>
           {navigation.map((item) => (
             <a key={item.name} href={item.href} className=' hover:text-emo-tan'>
