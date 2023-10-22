@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3b9983;;
+}
+
+.main-page-container {
+    text-align: center;
+    /* background-color: #3b9983; */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-image {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 36px;
+    color: black;
+    margin-top: 20px;
+}
+
+.main-description {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgreen;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.explore-button:hover {
+    background-color: #005682;
+}
+
+.learn-more-link {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.learn-more-link:hover {
+    text-decoration: underline;
+}

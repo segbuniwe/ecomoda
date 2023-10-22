@@ -1,0 +1,27 @@
+.community-guidelines {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.community-guidelines h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.community-guidelines strong {
+    font-weight: bold;
+}
+
+.community-guidelines ol {
+    list-style-type: lower-alpha;
+}
+
+.community-guidelines li {
+    margin: 10px 0;
+    line-height: 1.5;
+}

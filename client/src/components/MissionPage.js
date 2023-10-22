@@ -1,4 +1,7 @@
+import "../styles/missionpage.css";
+
 function MissionPage() {
+
   return (
     <>
       <h1>Mission Statement:</h1>
@@ -10,7 +13,8 @@ function MissionPage() {
         inclusive world."
       </p>
     </>
-  );
-}
+  )
+};
+
 
 export default MissionPage;
