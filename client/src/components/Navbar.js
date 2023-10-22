@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { usePassageUserInfo } from "../hooks";
 import "../styles/navbar.css";
+import LogoutButton from "./LogoutButton";
 
 function Navbar() {
     const { userInfo } = usePassageUserInfo();
@@ -60,6 +61,9 @@ function Navbar() {
                             >
                                 Login
                             </NavLink>
+                        </li>)}
+                        {userInfo && (<li>
+                                <LogoutButton />
                         </li>)}
                     </ul>
                 </div>
