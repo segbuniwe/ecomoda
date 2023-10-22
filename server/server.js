@@ -11,11 +11,15 @@ require("dotenv").config();
 connectDB();
 
 const app = express();
-const CLIENT_URL = "http://localhost:3000";
+// Define the allowed origins in an array.
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://main.d3u3eipz2iqdk9.amplifyapp.com",
+];
 
 app.use(
   cors({
-    origin: CLIENT_URL,
+    origin: allowedOrigins,
     methods: "GET,PUT,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,
@@ -76,7 +80,7 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

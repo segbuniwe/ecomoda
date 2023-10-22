@@ -4,6 +4,7 @@ import UserProfile from "../components/User-Profile";
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
 import LogoutButton from "../components/LogoutButton";
+import Layout from "../components/Layout";
 
 const Dashboard = () => {
   const { userInfo, loading } = usePassageUserInfo();
@@ -26,6 +27,7 @@ const Dashboard = () => {
         </div>
       }
     >
+      <Layout>
       <div>
         <div>Welcome</div>
         <div>
@@ -36,6 +38,7 @@ const Dashboard = () => {
         <LogoutButton />
       </div>
       <UserProfile />
+      </Layout>
     </PassageAuthGuard>
   );
 };
