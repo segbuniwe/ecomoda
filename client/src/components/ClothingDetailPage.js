@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import '../styles/clothingdetail.css';
 
 function ClothingDetailPage() {
     const { clothes_id } = useParams();
@@ -29,24 +30,20 @@ function ClothingDetailPage() {
     }
 
     return (
-        <div>
-            <h1>{clothes.name}</h1>
+        <div className="clothing-detail-container">
+            <h1 className="clothing-name">{clothes.name}</h1>
             <div>
-                <img src={clothes.image} alt={clothes.name} />
+                <img src={clothes.image} alt={clothes.name} className="clothing-image" />
             </div>
             <div>
-                <p>Description: {clothes.description}</p>
+                <p className="clothing-description">Description: {clothes.description}</p>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <p>Size: {clothes.size}</p>
-                        </div>
-                        <div>
-                            <p>Contact Me: {clothes.contact}</p>
-                        </div>
-                    </div>
+            <div className="clothing-details">
+                <div className="clothing-info">
+                    <p className="clothing-size">Size: {clothes.size}</p>
+                </div>
+                <div className="clothing-info">
+                    <p className="contact-me">Contact Me: {clothes.contact}</p>
                 </div>
             </div>
         </div>

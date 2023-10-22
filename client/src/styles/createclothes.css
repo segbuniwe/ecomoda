@@ -1,0 +1,40 @@
+.create-clothing-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.create-clothing-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.create-clothing-form input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.create-button {
+    background-color: darkgreen;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background-color: #999;
+}

@@ -64,7 +64,7 @@
 }
 
 .search-filter-forms button[type="submit"] {
-    background-color: #3b9983;
+    background-color: darkgreen;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -74,7 +74,7 @@
 }
 
 .search-filter-forms button[type="submit"]:hover {
-    background-color: #3b9983;
+    background-color: #999;
 }
 
 .search-filter-forms form:nth-child(2) {
@@ -90,7 +90,7 @@
 }
 
 .search-filter-forms button[type="submit"]:nth-child(2) {
-    background-color: #3b9983;
+    background-color: darkgreen;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -100,7 +100,7 @@
 }
 
 .search-filter-forms button[type="submit"]:nth-child(2):hover {
-    background-color: #3b9983;
+    background-color: #999;
 }
 
 .search-filter-forms button[type="button"] {
