@@ -249,9 +249,7 @@ export default function Navbar() {
                                     Log in
                                 </a>)}
                                 {userInfo && (
-                                    <li>
-                                        <LogoutButton />
-                                    </li>
+                                    <LogoutButton />
                                 )}
                             </div>
                         </div>
