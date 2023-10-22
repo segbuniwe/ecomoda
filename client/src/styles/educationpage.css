@@ -1,0 +1,41 @@
+.education-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.video-container {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.education-page h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+video {
+    max-width: 100%;
+}
+
+.shout-out {
+    text-align: center;
+}
+
+.shout-out p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.link {
+    color: #0077b5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

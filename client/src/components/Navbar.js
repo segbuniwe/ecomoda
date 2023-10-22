@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { usePassageUserInfo } from "../hooks";
+import "../styles/navbar.css";
 
 function Navbar() {
     const { userInfo } = usePassageUserInfo();
 
     return (
-        <header>
+        <header className="navbar">
             <nav>
                 <div>
                     <ul>

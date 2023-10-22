@@ -1,6 +1,8 @@
+import "../styles/missionpage.css";
+
 function MissionPage() {
     return (
-        <>
+        <div className="mission-page">
             <h1>Mission Statement:</h1>
             <p>
                 "Our mission is to revolutionize fashion consumption
@@ -10,7 +12,7 @@ function MissionPage() {
                 responsibly, all while fostering a more eco-conscious and
                 inclusive world."
             </p>
-        </>
+        </div>
     )
 };
 

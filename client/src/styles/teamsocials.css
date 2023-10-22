@@ -1,0 +1,31 @@
+.team-socials-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.team-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member-link {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #0077B5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.team-member-link:hover {
+    background-color: #005682;
+    color: #fff;
+}
