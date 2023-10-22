@@ -7,11 +7,11 @@ import Dashboard from "./screens/dashboard";
 import CreateClothingItemForm from "./components/CreateClothingItemForm";
 import ClothesList from "./components/ClothesList";
 import ClothingDetailPage from "./components/ClothingDetailPage";
-import MissionPage from "./components/MissionPage";
 import TeamSocialsPage from "./components/TeamSocialsPage";
-import CommunityGuidelines from "./components/CommunityGuidelines";
-import EducationPage from "./components/EducationPage";
+import Guidelines from "./screens/guidelines";
+import Educate from "./screens/educate";
 import MainPage from "./components/MainPage";
+import Support from "./screens/support";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path='/' element={<Index />} />
+            <Route exact path='/support' element={<Support />} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/dashboard' element={<Dashboard />} />
             <Route exact path='/create' element={<CreateClothingItemForm />} />
@@ -29,10 +30,10 @@ function App() {
               path='/clothes/:clothes_id'
               element={<ClothingDetailPage />}
             />
-            <Route exact path='/mission' element={<MissionPage />} />
+
             <Route exact path='/team' element={<TeamSocialsPage />} />
-            <Route exact path='/guidelines' element={<CommunityGuidelines />} />
-            <Route exact path='/educate' element={<EducationPage />} />
+            <Route exact path='/guidelines' element={<Guidelines />} />
+            <Route exact path='/educate' element={<Educate />} />
             <Route exact path='/home' element={<MainPage />} />
           </Routes>
         </Router>

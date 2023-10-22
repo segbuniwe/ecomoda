@@ -6,12 +6,15 @@ import {
   PassageUnAuthGuard,
 } from "@passageidentity/passage-react";
 import { Navigate } from "react-router-dom";
+import Layout from "../components/Layout";
 
 const Login = () => {
   return (
     <div className='App-header'>
       <PassageUnAuthGuard authComp={<Navigate to='/dashboard' />}>
-        <Loginform />
+        <Layout>
+          <Loginform />
+        </Layout>
       </PassageUnAuthGuard>
     </div>
   );

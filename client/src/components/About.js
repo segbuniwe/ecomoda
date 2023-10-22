@@ -15,10 +15,12 @@ const About = () => {
             <h1 className='mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Style with purpose: Dress the planet
             </h1>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+            <p className='mt-6 text-xl leading-8 text-gray-600'>
+              "Our mission is to revolutionize fashion consumption by creating a
+              sustainable and accessible clothing-swap app. We aim to reduce
+              clothing waste, promote a circular fashion economy, and empower
+              people to refresh their style responsibly, all while fostering a
+              more eco-conscious and inclusive world."
             </p>
             <div className='mt-10 flex items-center gap-x-6'>
               <a

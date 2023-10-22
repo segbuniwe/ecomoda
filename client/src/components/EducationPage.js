@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function EducationPage() {
   return (
-    <div>
+    <div className='mx-auto max-w-3xl bg-gray-50 py-6 my-12 rounded-xl'>
       <h1>Community Tips & Videos</h1>
       <video controls width='640' height='360'>
         <source src={videoFile} type='video/mp4' />
