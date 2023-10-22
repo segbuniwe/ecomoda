@@ -1,0 +1,48 @@
+volumes:
+  mongodb-data:
+    external: true
+
+version: '3'
+services:
+  express-app:
+    build:
+      context: server
+      dockerfile: Dockerfile.dev
+    ports:
+      - '5001:5001'
+    environment:
+      NOD_ENV: ${NOD_ENV}
+      PORT: ${PORT}
+      MONGODB_URI: ${MONGODB_URI}
+      PASSAGE_APP_ID: ${PASSAGE_APP_ID}
+      PASSAGE_API_KEY: ${PASSAGE_API_KEY}
+    depends_on:
+      - mongo
+    links:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  client:
+    image: node:lts-bullseye
+    command: /bin/bash run.sh
+    working_dir: /app
+    volumes:
+      - ./client:/app
+    ports:
+      - "3000:3000"
+    environment:
+      HOST_OS: ${OS}
+      NODE_ENV: development
+      HOST: "0.0.0.0"
+      PUBLIC_URL: http://localhost:3000
+      REACT_APP_API_HOST: ${REACT_APP_API_HOST}
+      GENERATE_SOURCEMAP: ${GENERATE_SOURCEMAP}
+      REACT_APP_PASSAGE_APP_ID: ${REACT_APP_PASSAGE_APP_ID}
