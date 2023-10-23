@@ -168,12 +168,7 @@ export default function Navbar() {
           >
             How You Can Help!
           </a>
-          <a
-            href='/support'
-            className='text-md font-semibold leading-6 text-gray-900'
-          >
-            Support
-          </a>
+
           <Popover className='relative'>
             {userInfo && (
               <Popover.Button className='flex items-center gap-x-1 text-md font-semibold leading-6'>
@@ -238,30 +233,6 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          {/* {userInfo && (
-            <a
-              href='/clothes'
-              className='text-md font-semibold leading-6 text-gray-900'
-            >
-              Search For Clothes
-            </a>
-          )}
-          {userInfo && (
-            <a
-              href='/create'
-              className='text-md font-semibold leading-6 text-gray-900'
-            >
-              Create Clothing Listing
-            </a>
-          )}
-          {userInfo && (
-            <a
-              href='/dashboard'
-              className='text-md font-semibold leading-6 text-gray-900'
-            >
-              Profile
-            </a>
-          )} */}
         </Popover.Group>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           {!userInfo && (
@@ -333,42 +304,6 @@ export default function Navbar() {
                 >
                   Support
                 </a>
-                {/* {userInfo && (
-                  <a
-                    href='/clothes'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    Search For Clothes
-                  </a>
-                )}
-                {userInfo && (
-                  <a
-                    href='/create'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    Create Clothing Listing
-                  </a>
-                )}
-                {userInfo && (
-                  <a
-                    href='/dashboard'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    Profile
-                  </a>
-                )}
-              </div>
-              <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-                {userInfo ? (
-                  <LogoutButton /> // Render the LogoutButton component
-                ) : (
-                  <a
-                    href='/login'
-                    className='text-md font-semibold leading-6 text-gray-900'
-                  >
-                    Log in <span aria-hidden='true'>&rarr;</span>
-                  </a>
-                )} */}
               </div>
             </div>
           </div>
