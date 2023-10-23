@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const Passage = require("@passageidentity/passage-node");
-const User = require("../models/userModel");
+import express from "express";
+const userRouter = express.Router();
+import Passage from "@passageidentity/passage-node";
+import userSchema from "../models/userModel.js";
 
 const passage = new Passage({
   appID: process.env.PASSAGE_APP_ID,
@@ -9,26 +9,24 @@ const passage = new Passage({
   authStrategy: "HEADER",
 });
 
-//get all users
-router.get("/", async (req, res) => {
+
+userRouter.get("/", async (req, res) => {
   try {
-    const user = await User.find();
+    const user = await userSchema.find();
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-router.post("/auth", async (req, res) => {
+userRouter.post("/auth", async (req, res) => {
   try {
     const userID = await passage.authenticateRequest(req);
     if (userID) {
-      // user is authenticated
       const { email, phone } = await passage.user.get(userID);
       const identifier = email ? email : phone;
 
-      // Update or create user in the database with passageIdentityUserId
-      const user = await User.findOneAndUpdate(
+      const user = await userSchema.findOneAndUpdate(
         { email: identifier },
         { passageIdentityUserId: userID },
         { new: true, upsert: true }
@@ -41,7 +39,6 @@ router.post("/auth", async (req, res) => {
       });
     }
   } catch (e) {
-    // authentication failed
     console.log(e);
     res.json({
       authStatus: "failure",
@@ -49,4 +46,4 @@ router.post("/auth", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default userRouter;
