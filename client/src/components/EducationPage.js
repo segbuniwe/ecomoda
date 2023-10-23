@@ -61,7 +61,7 @@ function EducationPage() {
         </div>
         <div>
           <p>
-            Get cool recycling ideas by clicking<Link className="link" to="/chat">here</Link>.
+            Get cool recycling ideas by clicking <Link className="link" to="/chat">here</Link>.
           </p>
         </div>
       </div>
