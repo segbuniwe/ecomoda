@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../styles/createclothes.css";
 import Layout from "./Layout";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const CreateClothingItemForm = () => {
   const [name, setName] = useState("");
