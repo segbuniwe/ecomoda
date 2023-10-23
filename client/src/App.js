@@ -5,7 +5,7 @@ import Index from "./screens/index";
 import Login from "./screens/login";
 import Dashboard from "./screens/dashboard";
 import CreateClothingItemForm from "./components/CreateClothingItemForm";
-import ClothesList from "./components/ClothesList";
+import Search from "./screens/search";
 import ClothingDetailPage from "./components/ClothingDetailPage";
 import TeamSocialsPage from "./components/TeamSocialsPage";
 import Guidelines from "./screens/guidelines";
@@ -25,7 +25,7 @@ function App() {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/dashboard' element={<Dashboard />} />
             <Route exact path='/create' element={<CreateClothingItemForm />} />
-            <Route exact path='/clothes' element={<ClothesList />} />
+            <Route exact path='/clothes' element={<Search />} />
             <Route
               exact
               path='/clothes/:clothes_id'
