@@ -12,7 +12,9 @@ function ClothesList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/clothes/list");
+        const response = await fetch(
+          "https://ecomoda-back-0c7b34371310.herokuapp.com/api/clothes/list"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

@@ -9,7 +9,9 @@ function ClothingDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/api/clothes/${clothes_id}`)
+    fetch(
+      `https://ecomoda-back-0c7b34371310.herokuapp.com/api/clothes/${clothes_id}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
