@@ -2,7 +2,7 @@ import React from "react";
 
 function CommunityGuidelines() {
   return (
-    <div className='mx-auto max-w-7xl bg-gray-100 my-12 rounded-xl py-12'>
+    <div className='mx-auto max-w-7xl bg-emo-tan my-12 rounded-xl py-12'>
       <div className='mx-auto max-w-6xl py-6 px-6'>
         <h1 className='text-4xl font-bold'>
           Registration & Community Guidelines
@@ -136,7 +136,7 @@ function CommunityGuidelines() {
             </ol>
           </li>
         </ol>
-        <p className='text-lg py-3'>
+        <p className='text-lg py-6 font-bold'>
           By following these guidelines, you can help create a sustainable,
           respectful, and positive clothing exchange community within the app.
         </p>
