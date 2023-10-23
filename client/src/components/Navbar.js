@@ -94,13 +94,13 @@ export default function Navbar() {
         </div>
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-md font-semibold leading-6'>
+            {/* <Popover.Button className='flex items-center gap-x-1 text-md font-semibold leading-6'>
               About
               <ChevronDownIcon
                 className='h-6 w-6 flex-none text-emo-black'
                 aria-hidden='true'
               />
-            </Popover.Button>
+            </Popover.Button> */}
 
             <Transition
               as={Fragment}
@@ -149,6 +149,9 @@ export default function Navbar() {
             </Transition>
           </Popover>
 
+          <a href='/' className='text-md font-semibold leading-6 text-gray-900'>
+            About
+          </a>
           <a
             href='/guidelines'
             className='text-md font-semibold leading-6 text-gray-900'
@@ -160,6 +163,12 @@ export default function Navbar() {
             className='text-md font-semibold leading-6 text-gray-900'
           >
             How You Can Help!
+          </a>
+          <a
+            href='/guidelines'
+            className='text-md font-semibold leading-6 text-gray-900'
+          >
+            FAQs
           </a>
 
           <Popover className='relative'>
@@ -256,7 +265,7 @@ export default function Navbar() {
           <div className='mt-6 flow-root'>
             <div className='-my-6 divide-y divide-gray-500/10'>
               <div className='space-y-2 py-6'>
-                <Disclosure as='div' className='-mx-3'>
+                {/* <Disclosure as='div' className='-mx-3'>
                   {({ open }) => (
                     <>
                       <Disclosure.Button className='flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
@@ -271,7 +280,13 @@ export default function Navbar() {
                       </Disclosure.Button>
                     </>
                   )}
-                </Disclosure>
+                </Disclosure> */}
+                <a
+                  href='/'
+                  className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                >
+                  About
+                </a>
                 <a
                   href='/guidelines'
                   className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
