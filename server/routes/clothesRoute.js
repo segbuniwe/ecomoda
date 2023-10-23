@@ -1,9 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const Clothes = require("../models/clothesModel");
+import express from "express";
+const clothesRouter = express.Router();
+import clothesSchema from "../models/clothesModel.js";
 
-// Create clothing
-router.post(
+clothesRouter.post(
     "/", (async (req, res) => {
         const {
             name,
@@ -14,7 +13,7 @@ router.post(
             location
         } = req.body;
 
-        const newClothes = new Clothes({
+        const newClothes = new clothesSchema({
             name,
             image,
             description,
@@ -29,19 +28,19 @@ router.post(
     })
 );
 
-// Get all clothes from all users
-router.get(
+
+clothesRouter.get(
     "/list", (async (req, res) => {
-        const clothes = await Clothes.find();
+        const clothes = await clothesSchema.find();
 
         res.json(clothes);
     })
 );
 
-// Get a specific clothes by ID
-router.get(
+
+clothesRouter.get(
     "/:id", (async (req, res) => {
-        const clothes = await Clothes.findById(req.params.id);
+        const clothes = await clothesSchema.findById(req.params.id);
 
         if (clothes) {
             res.json(clothes);
@@ -51,24 +50,23 @@ router.get(
     })
 );
 
-// Get all clothes from a single user
-router.get(
+
+clothesRouter.get(
     "/user/:userId", (async (req, res) => {
         const userId = req.params.userId;
 
-        // Find all clothes owned by the user with the specified userId
-        const clothes = await Clothes.find({ user: userId }).populate('user');
+        const clothes = await clothesSchema.find({ user: userId }).populate('user');
 
         res.json(clothes);
     })
 );
 
-// Update clothes by ID
-router.put(
+
+clothesRouter.put(
     "/:id", (async (req, res) => {
         const { name, image, description, size } = req.body;
 
-        const clothes = await Clothes.findById(req.params.id);
+        const clothes = await clothesSchema.findById(req.params.id);
 
         if (clothes) {
             clothes.name = name || clothes.name;
@@ -84,10 +82,10 @@ router.put(
     })
 );
 
-// Delete clothes by ID
-router.delete(
+
+clothesRouter.delete(
     "/:id", (async (req, res) => {
-        const clothes = await Clothes.findById(req.params.id);
+        const clothes = await clothesSchema.findById(req.params.id);
 
         if (clothes) {
             await clothes.remove();
@@ -98,5 +96,4 @@ router.delete(
     })
 );
 
-
-module.exports = router;
+export default clothesRouter;
