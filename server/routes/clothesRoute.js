@@ -1,8 +1,8 @@
-import express from "express";
-const clothesRouter = express.Router();
-import clothesSchema from "../models/clothesModel.js";
+const express = require("express");
+const router = express.Router();
+const Clothes = require("../models/clothesModel");
 
-clothesRouter.post(
+router.post(
     "/", (async (req, res) => {
         const {
             name,
@@ -13,7 +13,7 @@ clothesRouter.post(
             location
         } = req.body;
 
-        const newClothes = new clothesSchema({
+        const newClothes = new Clothes({
             name,
             image,
             description,
@@ -28,19 +28,17 @@ clothesRouter.post(
     })
 );
 
-
-clothesRouter.get(
+router.get(
     "/list", (async (req, res) => {
-        const clothes = await clothesSchema.find();
+        const clothes = await Clothes.find();
 
         res.json(clothes);
     })
 );
 
-
-clothesRouter.get(
+router.get(
     "/:id", (async (req, res) => {
-        const clothes = await clothesSchema.findById(req.params.id);
+        const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
             res.json(clothes);
@@ -50,23 +48,21 @@ clothesRouter.get(
     })
 );
 
-
-clothesRouter.get(
+router.get(
     "/user/:userId", (async (req, res) => {
         const userId = req.params.userId;
 
-        const clothes = await clothesSchema.find({ user: userId }).populate('user');
+        const clothes = await Clothes.find({ user: userId }).populate('user');
 
         res.json(clothes);
     })
 );
 
-
-clothesRouter.put(
+router.put(
     "/:id", (async (req, res) => {
         const { name, image, description, size } = req.body;
 
-        const clothes = await clothesSchema.findById(req.params.id);
+        const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
             clothes.name = name || clothes.name;
@@ -82,10 +78,9 @@ clothesRouter.put(
     })
 );
 
-
-clothesRouter.delete(
+router.delete(
     "/:id", (async (req, res) => {
-        const clothes = await clothesSchema.findById(req.params.id);
+        const clothes = await Clothes.findById(req.params.id);
 
         if (clothes) {
             await clothes.remove();
@@ -96,4 +91,5 @@ clothesRouter.delete(
     })
 );
 
-export default clothesRouter;
+
+module.exports = router;

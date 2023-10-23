@@ -59,6 +59,11 @@ function EducationPage() {
             to gain more knowledge and expand your horizons in sustainability.
           </p>
         </div>
+        <div>
+          <p>
+            Get cool recycling ideas by clicking<Link className="link" to="/chat">here</Link>.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -39,9 +39,10 @@ Created for: Women Who Code Hackathon For Social Good Oct 2023
 4. Signup and get an API key and APP ID from Passage (https://console.passage.id/).
 5. In the `.env` file created inside the server, set it as `PASSAGE_APP_ID=passage app ID` and `PASSAGE_API_KEY=passage api key`.
 6. Signup and get an API key from OpenAI (https://openai.com/blog/openai-api).
-7. In the `.env` file created, set it as `OPENAI_API_KEY=openAI api key`.
+7. `cd` into the chatgpt folder and create a `.env` file. Set it as `OPENAI_API_KEY=openAI api key`.
 8. `cd` into the clieny directory and create a `.env` file inside. Set `GENERATE_SOURCEMAP=false`, `REACT_APP_PASSAGE_ID=passage app ID`, and `REACT_APP_API_HOST=http://localhost:5001` or with whatever your port may be.
 9. In a terminal, `cd`  into the server directory and run `npm install` then `node server.js`.
 10. In another terminal, `cd` into the client directory and run `npm install` then `npm start`.
-11. Go to http://localhost:3000.
-12. Enjoy using EcoModa!
+11. In another terminal, `cd` into the chatgpt directory and run `npm install` then `npm start`.
+12. Go to http://localhost:3000.
+13. Enjoy using EcoModa!

@@ -5,7 +5,7 @@ function Chatbot() {
         <div>
             <iframe
                 title="Chatbot"
-                src="http://localhost:5001/chat"
+                src="http://localhost:8000"
                 width="400"
                 height="600"
             ></iframe>

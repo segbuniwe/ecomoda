@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "dependencies": {
     "@passageidentity/passage-node": "^2.6.0",
     "axios": "^1.5.1",

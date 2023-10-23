@@ -16,7 +16,7 @@ import { methods } from "./methods.js"
 dotenv.config()
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -31,21 +31,18 @@ const logStream = fs.createWriteStream(path.join(logsDir, "access.log"), {
 })
 
 app.use(morgan("combined", { stream: logStream }))
-// Set up rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: 15 * 60 * 1000,
+  max: 100,
 })
 
 app.use(limiter)
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).json({ error: "Internal server error" })
 })
 
-// Set up OpenAPI documentation
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -63,7 +60,6 @@ const options = {
   apis: ["./app.js"],
 }
 
-// Generate API routes and documentation based on methods
 methods.forEach((method) => {
   const {
     id,
@@ -74,14 +70,12 @@ methods.forEach((method) => {
     execute,
   } = method
 
-  // Create API route
   app[httpMethod](
     route,
     inputVariables.map((variable) =>
       check(variable).notEmpty().trim().escape()
     ),
     async (req, res) => {
-      // Validate input
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
@@ -119,7 +113,6 @@ methods.forEach((method) => {
     }
   )
 
-  // Add OpenAPI documentation for the route
   options.definition.paths = options.definition.paths || {}
   options.definition.paths[route] = {
     [httpMethod]: {
@@ -164,7 +157,6 @@ methods.forEach((method) => {
 
 const specs = swaggerJsdoc(options)
 
-// Frontend
 app.get("/", (req, res) => {
   fs.readFile("./views/index.ejs", "utf8", (err, data) => {
     if (err) {

@@ -16,7 +16,6 @@ services:
       MONGODB_URI: ${MONGODB_URI}
       PASSAGE_APP_ID: ${PASSAGE_APP_ID}
       PASSAGE_API_KEY: ${PASSAGE_API_KEY}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
     depends_on:
       - mongo
     links:
@@ -47,3 +46,12 @@ services:
       REACT_APP_API_HOST: ${REACT_APP_API_HOST}
       GENERATE_SOURCEMAP: ${GENERATE_SOURCEMAP}
       REACT_APP_PASSAGE_APP_ID: ${REACT_APP_PASSAGE_APP_ID}
+
+  chatbot:
+    build:
+      context: chatgpt
+      dockerfile: Dockerfile.dev
+    ports:
+      - '8000:8000'
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}

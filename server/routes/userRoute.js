@@ -1,7 +1,7 @@
-import express from "express";
-const userRouter = express.Router();
-import Passage from "@passageidentity/passage-node";
-import userSchema from "../models/userModel.js";
+const express = require("express");
+const router = express.Router();
+const Passage = require("@passageidentity/passage-node");
+const User = require("../models/userModel");
 
 const passage = new Passage({
   appID: process.env.PASSAGE_APP_ID,
@@ -9,24 +9,23 @@ const passage = new Passage({
   authStrategy: "HEADER",
 });
 
-
-userRouter.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const user = await userSchema.find();
+    const user = await User.find();
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-userRouter.post("/auth", async (req, res) => {
+router.post("/auth", async (req, res) => {
   try {
     const userID = await passage.authenticateRequest(req);
     if (userID) {
       const { email, phone } = await passage.user.get(userID);
       const identifier = email ? email : phone;
 
-      const user = await userSchema.findOneAndUpdate(
+      const user = await User.findOneAndUpdate(
         { email: identifier },
         { passageIdentityUserId: userID },
         { new: true, upsert: true }
@@ -46,4 +45,4 @@ userRouter.post("/auth", async (req, res) => {
   }
 });
 
-export default userRouter;
+module.exports = router;
