@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 
 function EducationPage() {
   return (
-    <div className='mx-auto max-w-6xl bg-gray-100 py-6 my-12 rounded-xl'>
+    <div className='mx-auto max-w-6xl bg-emo-tan py-6 my-12 rounded-xl lg:pb-8'>
       <div className='mx-auto max-w-5xl py-6 px-6'>
-        <video controls width='1280' height='720'>
+        <video
+          controls
+          width='1280'
+          height='720'
+          className='rounded-2xl drop-shadow-md'
+        >
           <source src={videoFile} type='video/mp4' />
         </video>
         <div className='py-6'>

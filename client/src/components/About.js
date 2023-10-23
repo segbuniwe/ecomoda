@@ -5,14 +5,17 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className='relative bg-gray-100 my-12 rounded-2xl max-w-7xl mx-auto'>
+    <div className='relative bg-emo-tan my-6 rounded-2xl max-w-7xl mx-auto'>
       <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 '>
         <div className='px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
-            <h1 className='mt-12 tracking-tight sm:mt-10 text-emo-black text-4xl '>
-              Style with purpose: Dress the planet
+            <h1 className='mt-3 tracking-tight sm:mt-10 text-emo-black text-3xl lg:text-6xl '>
+              EcoModa
             </h1>
-            <p className='mt-6 text-xl leading-8'>
+            <h2 className='mt-6 tracking-tight sm:mt-10 text-emo-black text-2xl md:text-4xl '>
+              Style with purpose: Dress the planet
+            </h2>
+            <p className='mt-6 text-md lg:text-lg leading-8'>
               "Our mission is to revolutionize fashion consumption by creating a
               sustainable and accessible clothing-swap app. We aim to reduce
               clothing waste, promote a circular fashion economy, and empower
