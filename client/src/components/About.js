@@ -6,7 +6,7 @@ import React from "react";
 const About = () => {
   return (
     <div className='relative bg-gray-100 my-12 rounded-2xl max-w-7xl mx-auto'>
-      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
+      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 '>
         <div className='px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <h1 className='mt-12 tracking-tight sm:mt-10 text-emo-black text-4xl '>
@@ -22,13 +22,13 @@ const About = () => {
             <div className='mt-10 flex items-center gap-x-6'>
               <a
                 href='/login'
-                className='rounded-md bg-emo-teal px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emo-tan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emo-teal'
+                className='rounded-md bg-emo-teal px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-emo-tan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emo-teal'
               >
                 Login
               </a>
               <a
                 href='/educate'
-                className='text-sm font-semibold leading-6 text-gray-900'
+                className='text-md font-semibold leading-6 text-gray-900'
               >
                 Learn more <span aria-hidden='true'>→</span>
               </a>

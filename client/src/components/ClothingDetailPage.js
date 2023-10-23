@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/clothingdetail.css";
+import Layout from "./Layout";
 
 function ClothingDetailPage() {
   const { clothes_id } = useParams();
@@ -30,29 +31,32 @@ function ClothingDetailPage() {
   }
 
   return (
-    <div className='clothing-detail-container'>
-      <h1 className='clothing-name'>{clothes.name}</h1>
-      <div>
-        <img
-          src={clothes.image}
-          alt={clothes.name}
-          className='clothing-image'
-        />
-      </div>
-      <div>
-        <p className='clothing-description'>
-          Description: {clothes.description}
-        </p>
-      </div>
-      <div className='clothing-details'>
-        <div className='clothing-info'>
-          <p className='clothing-size'>Size: {clothes.size}</p>
+    <Layout>
+      <div className='clothing-detail-container'>
+        <h1 className='text-2xl'>{clothes.name}</h1>
+        <div>
+          <img
+            src={clothes.image}
+            alt={clothes.name}
+            className='clothing-image'
+          />
         </div>
-        <div className='clothing-info'>
-          <p className='contact-me'>Contact Me: {clothes.contact}</p>
+        <div>
+          <p className='text-xl'>
+            <span className='font-bold'>Description:</span>{" "}
+            {clothes.description}
+          </p>
+        </div>
+        <div className='clothing-details'>
+          <div className='clothing-info'>
+            <p>Size: {clothes.size}</p>
+          </div>
+          <div className='clothing-info'>
+            <p>Contact Me: {clothes.contact}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

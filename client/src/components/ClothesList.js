@@ -55,7 +55,7 @@ function ClothesList() {
   };
 
   return (
-    <div className='mx-auto max-w-7xl bg-gray-100 py-12 rounded-xl'>
+    <div className='mx-auto max-w-7xl bg-gray-100 py-12 rounded-xl min-h-screen'>
       <div className='mx-auto max-w-5xl'>
         <div className='search-filter-forms'>
           <form onSubmit={handleSearchSubmit} className='search-form'>
