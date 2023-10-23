@@ -1,4 +1,4 @@
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)]([https://youtu.be/vt5fpE0bzSY](https://kats-port.s3.us-west-1.amazonaws.com/LangChain+Dynamic+Frontend.mp4))
+
 
 # EcoModa
 * Elahn Danee
